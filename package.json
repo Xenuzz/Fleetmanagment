@@ -1,0 +1,16 @@
+﻿{
+  "name": "fleet-management-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["apps/*", "shared/*"],
+  "scripts": {
+    "test:mobile": "npx playwright test --config=tests/playwright-mobile.config.ts",
+    "test:e2e": "npm run test:mobile",
+    "test:update": "npx playwright test --config=tests/playwright-mobile.config.ts --update-snapshots",
+    "test:debug": "npx playwright debug --config=tests/playwright-mobile.config.ts",
+    "test:ui": "npx playwright show-report test-results/"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.2"
+  }
+}

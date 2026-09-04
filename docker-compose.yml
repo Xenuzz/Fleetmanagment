@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  web:
+    image: node:18-alpine
+    container_name: fleet-web
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./app:/app/src
+    networks:
+      - fleet-network
+    depends_on:
+      - db
+    healthcheck:
+      test: ['CMD', 'node', '-e', "require('fs').existsSync('/app/src/index.js')"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 40s
+
+  db:
+    image: postgres:15-alpine
+    container_name: fleet-db
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-fleetuser}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-fleetpass}
+      - POSTGRES_DB=fleet_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - fleet-network
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', '${POSTGRES_USER:-fleetuser}']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+networks:
+  fleet-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

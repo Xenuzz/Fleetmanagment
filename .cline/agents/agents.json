@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "project": "Fleet Management WebUI",
+  "agents": {
+    "Coordinator": {
+      "type": "orchestrator",
+      "status": "active",
+      "responsibilities": ["overall project coordination", "task scheduling", "agent workflow orchestration"]
+    },
+    "Planner": {
+      "type": "planner",
+      "status": "active",
+      "responsibilities": ["requirement analysis", "task decomposition", "dependency mapping", "effort estimation"]
+    },
+    "Backend Builder": {
+      "type": "builder",
+      "status": "active",
+      "technologies": ["Node.js/Express", "MongoDB/PostgreSQL", "Passport.js"],
+      "responsibilities": ["server setup", "API development", "database integration", "authentication"]
+    },
+    "Frontend Builder": {
+      "type": "builder",
+      "status": "active",
+      "technologies": ["React 18+", "TypeScript", "CSS/Tailwind"],
+      "responsibilities": ["component development", "state management", "routing", "responsive design"]
+    },
+    "Android Builder": {
+      "type": "builder",
+      "status": "active",
+      "technologies": ["Kotlin", "Jetpack Compose", "Firebase"],
+      "responsibilities": ["native Android development", "GPS integration", "real-time tracking"]
+    },
+    "Database Builder": {
+      "type": "builder",
+      "status": "active",
+      "technologies": ["MongoDB/PostgreSQL", "Prisma/Mongoose"],
+      "responsibilities": ["schema design", "migrations", "data seeding", "query optimization"]
+    },
+    "Reviewer": {
+      "type": "reviewer",
+      "status": "active",
+      "checklist": ["code style", "best practices", "security basics", "documentation completeness"],
+      "responsibilities": ["pull request reviews", "style enforcement", "pattern consistency"]
+    },
+    "Security Reviewer": {
+      "type": "reviewer",
+      "status": "active",
+      "checklist": ["vulnerability scanning", "dependency checks", "auth/authorization audit", "OWASP compliance"],
+      "responsibilities": ["security code review", "secret management", "CSP implementation"]
+    },
+    "Tester": {
+      "type": "tester",
+      "status": "active",
+      "technologies": ["Jest/Vitest", "Supertest", "Cypress/Playwright"],
+      "responsibilities": ["unit tests", "integration tests", "E2E tests", "performance testing"]
+    }
+  },
+  "workflows": {
+    "development": [
+      "Planner breaks down requirements",
+      "Builders implement features",
+      "Reviewer approves code quality",
+      "Security Reviewer validates security",
+      "Tester runs test suites",
+      "Coordinator merges and tracks"
+    ],
+    "security": [
+      "All PRs go through Security Reviewer for audit",
+      "Critical vulnerabilities require immediate freeze",
+      "Remediation tracked by Coordinator"
+    ]
+  },
+  "verified": {
+    "all_have_frontmatter": true,
+    "no_duplicate_roles": true,
+    "clear_responsibilities": true
+  }
+}

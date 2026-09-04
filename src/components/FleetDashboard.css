@@ -1,0 +1,144 @@
+.fleet-dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-header {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-bottom: 2px solid #4a90e2;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(74, 144, 226, 0.2);
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.status-indicator.active {
+  color: #4ade80;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.vehicle-section,
+.driver-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 400px;
+}
+
+.vehicle-section h2,
+.driver-section h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 10px;
+}
+
+.vehicle-card,
+.driver-card {
+  background: rgba(74, 144, 226, 0.15);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.vehicle-card:hover,
+.driver-card:hover {
+  background: rgba(74, 144, 226, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.vehicle-name,
+.driver-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.active,
+.status-badge.on-duty {
+  background: rgba(74, 222, 128, 0.2);
+  color: #4ade80;
+}
+
+.status-badge.maintenance,
+.status-badge.off-duty {
+  background: rgba(234, 179, 8, 0.2);
+  color: #fbbf24;
+}
+
+.status-badge.inactive {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.card-details {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.card-details p {
+  margin: 5px 0;
+}
+
+.dashboard-footer {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  text-align: center;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .dashboard-main {
+    grid-template-columns: 1fr;
+  }
+  
+  .vehicle-section h2,
+  .driver-section h2 {
+    font-size: 1.1rem;
+  }
+}
